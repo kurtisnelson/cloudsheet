@@ -1,5 +1,5 @@
-require "row"
-require "mapping"
+require_relative "cloudsheet/row"
+require_relative "cloudsheet/mapping"
 
 module Cloudsheet
   class Drive

@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "Cloudsheet"
-  gem.homepage = "http://github.com/kurtisnelson/Cloudsheet"
+  gem.name = "cloudsheet"
+  gem.homepage = "http://github.com/kurtisnelson/cloudsheet"
   gem.license = "MIT"
   gem.summary = %Q{Load Google Drive Spreadsheets better}
   gem.description = %Q{Pull google drive spreadsheets with your column names and datatypes}
@@ -43,7 +43,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "Cloudsheet #{version}"
+  rdoc.title = "cloudsheet #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
