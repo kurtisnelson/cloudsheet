@@ -1,6 +1,27 @@
 = Cloudsheet
+Load Google Drive Spreadsheets sanely.
 
-Description goes here.
+Setup a Google Drive Session and pass it into Cloudsheet along with the Google Spreadsheet ID (seen in the url)
+
+      drive = GoogleDrive.login("user@example.com", "mypassword")
+      cloudsheet = Cloudsheet::Drive.new(drive, "SPREADSHEETID")
+
+Setup an optional mapping of column #s to names and lambdas.
+
+      m = Cloudsheet::Map.new
+      m[0] = Cloudsheet::Mapping.new(:name)
+      m[1] = Cloudsheet::Mapping.new(:start_date, ->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+
+Select a worksheet if not the first one and pass in an optional map
+    
+      cloudsheet.worksheet(0).map(m)
+      cloudsheet.each do |row|
+        row["name"] # Column 0
+        row["start_date"] # DateTime object created from column 1
+        row[2] # Un-mapped columns
+      end
+
+      puts "That was easy!"
 
 == Contributing to Cloudsheet
  
