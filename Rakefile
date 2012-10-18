@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "Cloudsheet"
   gem.homepage = "http://github.com/kurtisnelson/Cloudsheet"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Load Google Drive Spreadsheets better}
+  gem.description = %Q{Pull google drive spreadsheets with your column names and datatypes}
   gem.email = "kurtisnelson@gmail.com"
   gem.authors = ["Kurt Nelson"]
   # dependencies defined in Gemfile
