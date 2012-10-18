@@ -10,6 +10,8 @@ doc
 .yardoc
 
 # bundler
+Gemfile.lock
+exports.sh
 .bundle
 
 # jeweler generated
