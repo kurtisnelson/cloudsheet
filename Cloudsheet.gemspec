@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kurt Nelson"]
   s.date = "2012-10-18"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Pull google drive spreadsheets with your column names and datatypes"
   s.email = "kurtisnelson@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Load Google Drive Spreadsheets better"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
