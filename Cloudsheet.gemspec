@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    "Cloudsheet.gemspec",
     "Gemfile",
     "LICENSE.txt",
     "README.rdoc",
