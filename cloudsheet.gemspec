@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "Cloudsheet"
+  s.name = "cloudsheet"
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -19,19 +19,19 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
-    "Cloudsheet.gemspec",
     "Gemfile",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/Cloudsheet.rb",
-    "lib/mapping.rb",
-    "lib/row.rb",
+    "cloudsheet.gemspec",
+    "lib/cloudsheet.rb",
+    "lib/cloudsheet/mapping.rb",
+    "lib/cloudsheet/row.rb",
     "spec/drive_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/kurtisnelson/Cloudsheet"
+  s.homepage = "http://github.com/kurtisnelson/cloudsheet"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
