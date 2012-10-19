@@ -13,7 +13,7 @@ module Cloudsheet
 
     def each
       rows.each do |r|
-        yield Row.new.parse(r, @map)
+        yield Row.parse(r, @map)
       end
     end
 
