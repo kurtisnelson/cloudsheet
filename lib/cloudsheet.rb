@@ -20,9 +20,8 @@ module Cloudsheet
     end
 
     def each
-      rower = Cloudsheet::Row.new(@map)
       rows.each do |r|
-        yield rower.parse(r)
+        yield Row.new.parse(r, @map)
       end
     end
 

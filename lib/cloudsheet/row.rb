@@ -1,19 +1,22 @@
 module Cloudsheet
   class Row
-    def initialize(map = nil)
-      @map = map
+    def initialize
     end
 
-    def parse(data)
+    def parse(data, map = nil)
+      @map = map
+      @data = data.to_a
       if @map
-        out = { }
+        @data = { }
         data.each_with_index do |d, i|
-          out[@map[i].name] = @map.parse(i, d)
+          @data[@map[i].name] = @map.parse(i, d)
         end
-        out
-      else
-        return data.to_a
       end
+      self
+    end
+
+    def [](key)
+      @data[key]
     end
   end
 end
