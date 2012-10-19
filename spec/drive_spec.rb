@@ -2,12 +2,9 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require "google_drive"
 
 describe Cloudsheet::Drive do
-  before :each do
-    @drive = GoogleDrive.login(ENV['G_USERNAME'], ENV['G_PASSWORD'])
-  end
-  let(:google_spreadsheet) {@drive.spreadsheet_by_key(ENV['G_SPREADSHEET'])}
+  let!(:google_spreadsheet) {GoogleDrive.login(ENV['G_USERNAME'], ENV['G_PASSWORD']).spreadsheet_by_key(ENV['G_SPREADSHEET'])}
   
-  subject{Cloudsheet::Drive.new(@drive, ENV['G_SPREADSHEET'])}
+  subject{Cloudsheet::Drive.new(user: ENV['G_USERNAME'], password: ENV['G_PASSWORD'], sheet_key: ENV['G_SPREADSHEET'])}
   
   it "initializes" do
     subject.raw_sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)

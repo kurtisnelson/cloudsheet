@@ -1,10 +1,8 @@
 = Cloudsheet
 Load Google Drive Spreadsheets sanely.
 
-Setup a Google Drive Session and pass it into Cloudsheet along with the Google Spreadsheet ID (seen in the url)
-
-      drive = GoogleDrive.login("user@example.com", "mypassword")
-      cloudsheet = Cloudsheet::Drive.new(drive, "SPREADSHEETID")
+Setup the Cloudsheet. sheet is an optional worksheet ID.
+      cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")
 
 Setup an optional mapping of column #s to names and lambdas.
 
