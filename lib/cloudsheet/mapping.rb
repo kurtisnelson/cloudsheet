@@ -16,9 +16,11 @@ module Cloudsheet
     end
 
     def type(klass)
-      klass = klass.to_s if klass.is_a? Class
+      klass = klass.to_s
       klass.downcase!
       case klass #Because case uses ===
+      when ""
+      when "noop"
       when "string"
         @read = ->(d) {String.new(d) if d}
         @write = TO_S
@@ -43,6 +45,7 @@ module Cloudsheet
       else
         raise "No mapping for that type is built in"
       end
+      self
     end
   end
 end

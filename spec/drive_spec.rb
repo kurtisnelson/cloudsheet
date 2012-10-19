@@ -5,7 +5,8 @@ describe Cloudsheet::Drive do
   before :all do
     @google_spreadsheet = GoogleDrive.login(ENV['G_USERNAME'], ENV['G_PASSWORD']).spreadsheet_by_key(ENV['G_SPREADSHEET'])
   end
-  
+ 
+  context "properly initialized" do
   subject{Cloudsheet::Drive.new(user: ENV['G_USERNAME'], password: ENV['G_PASSWORD'], sheet_key: ENV['G_SPREADSHEET'])}
   
   it "initializes" do
@@ -34,6 +35,7 @@ describe Cloudsheet::Drive do
       m = Cloudsheet::Map.new
       m[0] = Cloudsheet::Mapping.new(:name)
       m[1] = Cloudsheet::Mapping.new(:start_date).map(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+      m[3] = Cloudsheet::Mapping.new(3)
       subject.map(m)
 
       ws = @google_spreadsheet.worksheets[0]
@@ -42,8 +44,15 @@ describe Cloudsheet::Drive do
         r[:name].should eq(ws[i, 1])
         r[:start_date].should eq(DateTime.strptime(ws[i, 2], "%m/%d/%Y"))
         r[2].should eq(ws[i, 3])
+        r[3].should eq(ws[i, 4])
         i += 1
       end
+    end
+  end
+  end
+  context "missing parameters" do
+    it "fails without sheet_key" do
+      ->{Cloudsheet::Drive.new(user: ENV['G_USERNAME'], password: ENV['G_PASSWORD'])}.should raise_error
     end
   end
 end

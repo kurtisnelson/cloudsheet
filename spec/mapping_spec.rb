@@ -2,12 +2,22 @@ require 'spec_helper'
 
 describe Cloudsheet::Mapping do
   subject { Cloudsheet::Mapping.new(:test) }
+  describe "#map" do
+    it "always returns self" do
+      subject.map(nil).should be subject
+    end
+  end
+  
   describe "#type" do
     specify{ expect{subject.type(Object)}.to raise_error}
     it "defaults to no-op" do
       subject.read.call(nil).should be_nil
       obj = Object.new
       subject.read.call(obj).should be obj
+    end
+
+    it "always returns self" do
+      subject.type(nil).should be subject
     end
 
     it "supports String" do
