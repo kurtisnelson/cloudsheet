@@ -9,7 +9,7 @@ module Cloudsheet
       if @map
         @data = { }
         data.each_with_index do |d, i|
-          @data[@map[i].name] = @map.parse(i, d)
+          @data[@map[i].name] = @map.read(i, d)
         end
       end
       self

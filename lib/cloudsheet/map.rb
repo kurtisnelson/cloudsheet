@@ -16,9 +16,14 @@ module Cloudsheet
       end
     end
 
-    def parse(i, d)
+    def read(i, d)
       return nil unless d
-      self[i].function.call d
+      self[i].read.call d
+    end
+
+    def write(i, d)
+      return "" unless d
+      self[i].write.call d
     end
   end
 end
