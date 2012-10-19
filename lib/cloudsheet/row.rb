@@ -8,9 +8,9 @@ module Cloudsheet
       if @map
         out = { }
         data.each_with_index do |d, i|
-          out[@map[i].name] = @map[i].function.call d
+          out[@map[i].name] = @map.parse(i, d)
         end
-        return out
+        out
       else
         return data.to_a
       end

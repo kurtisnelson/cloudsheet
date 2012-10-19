@@ -12,6 +12,8 @@ Setup an optional mapping of column #s to names and lambdas.
       m[0] = Cloudsheet::Mapping.new(:name)
       m[1] = Cloudsheet::Mapping.new(:start_date, ->(d) {DateTime.strptime(d, "%m/%d/%Y")})
 
+The map will try to do the right thing and if nil is passed in, it will skip the lambda and output nil.
+
 Select a worksheet if not the first one and pass in an optional map
     
       cloudsheet.worksheet(0).map(m)
