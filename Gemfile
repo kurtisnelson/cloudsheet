@@ -8,4 +8,6 @@ group :development do
   gem "bundler"
   gem "jeweler"
   gem "simplecov"
+  gem "vcr"
+  gem "webmock"
 end
