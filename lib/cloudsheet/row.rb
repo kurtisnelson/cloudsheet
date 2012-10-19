@@ -18,5 +18,11 @@ module Cloudsheet
     def [](key)
       @data[key]
     end
+
+    def each
+      @data.each do |v|
+        yield v
+      end
+    end
   end
 end
