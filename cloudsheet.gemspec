@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "cloudsheet"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kurt Nelson"]
-  s.date = "2012-10-18"
+  s.date = "2012-10-19"
   s.description = "Pull google drive spreadsheets with your column names and datatypes"
   s.email = "kurtisnelson@gmail.com"
   s.extra_rdoc_files = [
@@ -26,9 +26,14 @@ Gem::Specification.new do |s|
     "VERSION",
     "cloudsheet.gemspec",
     "lib/cloudsheet.rb",
+    "lib/cloudsheet/drive.rb",
+    "lib/cloudsheet/map.rb",
     "lib/cloudsheet/mapping.rb",
     "lib/cloudsheet/row.rb",
+    "lib/cloudsheet/sheet.rb",
     "spec/drive_spec.rb",
+    "spec/mapping_spec.rb",
+    "spec/row_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/kurtisnelson/cloudsheet"
