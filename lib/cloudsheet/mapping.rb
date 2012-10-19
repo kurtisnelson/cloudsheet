@@ -6,7 +6,7 @@ module Cloudsheet
       @function = ->(d) {d}
     end
     
-    def lambda(f)
+    def map(f)
       @function = f
       self
     end

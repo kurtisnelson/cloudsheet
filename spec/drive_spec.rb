@@ -33,7 +33,7 @@ describe Cloudsheet::Drive do
     it "enumerates with a map" do
       m = Cloudsheet::Map.new
       m[0] = Cloudsheet::Mapping.new(:name)
-      m[1] = Cloudsheet::Mapping.new(:start_date).lambda(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+      m[1] = Cloudsheet::Mapping.new(:start_date).map(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
       subject.map(m)
 
       ws = @google_spreadsheet.worksheets[0]
