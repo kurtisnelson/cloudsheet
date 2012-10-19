@@ -6,28 +6,34 @@ Load Google Drive Spreadsheets sanely. It is [published](https://rubygems.org/ge
 ## Usage
 Setup the Cloudsheet. sheet is an optional worksheet ID.
 
-  cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")
+```ruby
+cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")`
+```
 
 Setup an optional mapping of column #s to names and lambdas. The default operation is to no-op.
 
-      m = Cloudsheet::Map.new
-      m[0] = Cloudsheet::Mapping.new(:name)
-      m[1] = Cloudsheet::Mapping.new(:score).type(Float)
-      m[2] = Cloudsheet::Mapping.new(:cash).type("money")
-      m[3] = Cloudsheet::Mapping.new(:start_date).map(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+```ruby
+m = Cloudsheet::Map.new
+m[0] = Cloudsheet::Mapping.new(:name)
+m[1] = Cloudsheet::Mapping.new(:score).type(Float)
+m[2] = Cloudsheet::Mapping.new(:cash).type("money")
+m[3] = Cloudsheet::Mapping.new(:start_date).map(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+```
 
 The map will try to do the right thing and if nil is passed in, it will skip the lambda and output nil.
 
 Select a worksheet if not the first one and pass in an optional map
-    
-      cloudsheet.sheet(0).map(m)
-      cloudsheet.each do |row|
-        row["name"] # Column 0
-        row["start_date"] # DateTime object created from column 1
-        row[2] # Un-mapped columns
-      end
 
-      puts "That was easy!"
+```ruby
+cloudsheet.sheet(0).map(m)
+cloudsheet.each do |row|
+    row["name"] # Column 0
+    row["start_date"] # DateTime object created from column 1
+    row[2] # Un-mapped columns
+end
+
+puts "That was easy!"
+```
 
 ## Contributing to Cloudsheet
  
