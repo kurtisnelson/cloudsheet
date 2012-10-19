@@ -1,31 +1,14 @@
 module Cloudsheet
-  class Map
-    def initialize
-      @data = {}
+  class Mapping
+    attr_reader :name, :function
+    def initialize(name)
+      @name = name
+      @function = ->(d) {d}
     end
-
-    def []=(i,val)
-      @data[i] = val
-    end
-
-    def [](i)
-      if @data[i]
-        @data[i]
-      else
-        Mapping.new(i)
-      end
-    end
-
-    def parse(i, d)
-      return nil unless d
-      self[i].function.call d
-    end
-  end
-  
-  class Mapping < Struct.new :name, :function
-    def initialize(name, func = ->(d) {String.new(d)})
-      self.name = name
-      self.function = func
+    
+    def lambda(f)
+      @function = f
+      self
     end
   end
 end

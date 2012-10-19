@@ -1,4 +1,5 @@
 require "cloudsheet/row"
+require "cloudsheet/map"
 require "cloudsheet/mapping"
 
 module Cloudsheet

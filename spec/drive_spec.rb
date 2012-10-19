@@ -2,16 +2,18 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require "google_drive"
 
 describe Cloudsheet::Drive do
-  let!(:google_spreadsheet) {GoogleDrive.login(ENV['G_USERNAME'], ENV['G_PASSWORD']).spreadsheet_by_key(ENV['G_SPREADSHEET'])}
+  before :all do
+    @google_spreadsheet = GoogleDrive.login(ENV['G_USERNAME'], ENV['G_PASSWORD']).spreadsheet_by_key(ENV['G_SPREADSHEET'])
+  end
   
   subject{Cloudsheet::Drive.new(user: ENV['G_USERNAME'], password: ENV['G_PASSWORD'], sheet_key: ENV['G_SPREADSHEET'])}
   
   it "initializes" do
-    subject.raw_sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)
+    subject.raw_sheet.worksheet_feed_url.should eq(@google_spreadsheet.worksheets[0].worksheet_feed_url)
   end
 
   it "selects a worksheet" do
-    subject.sheet(0).raw_sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)
+    subject.sheet(0).raw_sheet.worksheet_feed_url.should eq(@google_spreadsheet.worksheets[0].worksheet_feed_url)
   end
 
   describe "rows" do
@@ -21,7 +23,7 @@ describe Cloudsheet::Drive do
 
     it "is enumerated without a map" do
       i = 2
-      ws = google_spreadsheet.worksheets[0]
+      ws = @google_spreadsheet.worksheets[0]
       subject.each do |r|
         r[0].should eq(ws[i, 1])
         i += 1
@@ -31,10 +33,10 @@ describe Cloudsheet::Drive do
     it "enumerates with a map" do
       m = Cloudsheet::Map.new
       m[0] = Cloudsheet::Mapping.new(:name)
-      m[1] = Cloudsheet::Mapping.new(:start_date, ->(d) {DateTime.strptime(d, "%m/%d/%Y")})
+      m[1] = Cloudsheet::Mapping.new(:start_date).lambda(->(d) {DateTime.strptime(d, "%m/%d/%Y")})
       subject.map(m)
 
-      ws = google_spreadsheet.worksheets[0]
+      ws = @google_spreadsheet.worksheets[0]
       i = 2
       subject.each do |r|
         r[:name].should eq(ws[i, 1])
