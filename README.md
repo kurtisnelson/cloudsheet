@@ -1,11 +1,12 @@
-= Cloudsheet
+# Cloudsheet
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/kurtisnelson/cloudsheet) [![Build Status](https://secure.travis-ci.org/kurtisnelson/cloudsheet.png?branch=master)](http://travis-ci.org/kurtisnelson/cloudsheet)
 
 Load Google Drive Spreadsheets sanely. It is [published](https://rubygems.org/gems/cloudsheet) on RubyGems. Full documentation is at [rubydoc.info](http://rubydoc.info/gems/cloudsheet/)
 
-== Usage
+## Usage
 Setup the Cloudsheet. sheet is an optional worksheet ID.
-      cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")
+
+  cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")
 
 Setup an optional mapping of column #s to names and lambdas. The default operation is to no-op.
 
@@ -28,7 +29,7 @@ Select a worksheet if not the first one and pass in an optional map
 
       puts "That was easy!"
 
-== Contributing to Cloudsheet
+## Contributing to Cloudsheet
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -38,7 +39,7 @@ Select a worksheet if not the first one and pass in an optional map
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2012 Kurt Nelson. See LICENSE.txt for
 further details.
