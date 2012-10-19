@@ -10,11 +10,11 @@ describe Cloudsheet::Drive do
   subject{Cloudsheet::Drive.new(@drive, ENV['G_SPREADSHEET'])}
   
   it "initializes" do
-    subject.spreadsheet.worksheets_feed_url.should eq(google_spreadsheet.worksheets_feed_url)
+    subject.raw_sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)
   end
 
   it "selects a worksheet" do
-    subject.worksheet(0).sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)
+    subject.sheet(0).raw_sheet.worksheet_feed_url.should eq(google_spreadsheet.worksheets[0].worksheet_feed_url)
   end
 
   describe "rows" do
