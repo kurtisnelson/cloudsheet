@@ -17,6 +17,7 @@ exports.sh
 # jeweler generated
 pkg
 
+spec/fixtures/vcr_cassettes
 # Have editor/IDE/OS specific files you need to ignore? Consider using a global gitignore: 
 #
 # * Create a file at ~/.gitignore
