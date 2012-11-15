@@ -5,6 +5,8 @@ module Cloudsheet
     def initialize(hash)
       if hash[:user] and hash[:password]
         drive = GoogleDrive.login(hash[:user], hash[:password])
+      elsif hash[:access_token]
+        drive = GoogleDrive.login_with_oauth(hash[:access_token])
       else
         raise "Missing Google Credentials"
       end

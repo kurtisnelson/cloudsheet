@@ -10,6 +10,13 @@ Setup the Cloudsheet. sheet is an optional worksheet ID.
 cloudsheet = Cloudsheet::Drive.new(user: "me@example.com", password: "secret", sheet_key: "SPREADSHEETID")`
 ```
 
+Or use a oauth access token
+
+```ruby
+cloudsheet = Cloudsheet::Drive.new(access_token: "1234a", sheet_key: "SPREADSHEETID")
+```
+
+
 Setup an optional mapping of column #s to names and lambdas. The default operation is to no-op.
 
 ```ruby
