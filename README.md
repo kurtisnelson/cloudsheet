@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/cloudsheet.png)](http://badge.fury.io/rb/cloudsheet)
 [![Code Climate](https://codeclimate.com/github/kurtisnelson/cloudsheet.png)](https://codeclimate.com/github/kurtisnelson/cloudsheet)
 [![Coverage Status](https://coveralls.io/repos/kurtisnelson/cloudsheet/badge.png?branch=master)](https://coveralls.io/r/kurtisnelson/cloudsheet)
+[![Dependency Status](https://gemnasium.com/kurtisnelson/cloudsheet.png)](https://gemnasium.com/kurtisnelson/cloudsheet)
 
 Load Google Drive Spreadsheets sanely. It is [published](https://rubygems.org/gems/cloudsheet) on RubyGems. Full documentation is at [rubydoc.info](http://rubydoc.info/gems/cloudsheet/)
 
